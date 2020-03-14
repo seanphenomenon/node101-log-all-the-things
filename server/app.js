@@ -8,7 +8,8 @@ app.use(morgan('dev'));
 
 app.use((req, res, next) => {
 // write your logging code here
-
+ console.log('Time:', Date.now())
+  next()
 });
 
 app.get('/', (req, res) =>{
