@@ -65,7 +65,8 @@ app.use((req, res, next) => {
     console.log('Version Saved!');
   });
 
-  fs.appendFile(loggerFile, status, function (err) {
+  fs.appendFile(loggerFile, status +'\n', function (err) {
+    // indent after status value is needed to create new json row log data
     if (err) throw err;
     console.log('Status Saved!');
   });
@@ -93,13 +94,12 @@ app.get('/logs', (req, res) => {
     // console.log(data);
 
     // converts csv to json:
-  csvtojson().fromFile(loggerFile).then(data => {
+csvtojson().fromFile(loggerFile).then(data => {
     console.log(data);
-    res.status(200).send(data);
-    res.end();
-    });
-
-  });
+     res.status(200).send(data);
+     res.end()
+      });
+   });
 })
 
 module.exports = app;
