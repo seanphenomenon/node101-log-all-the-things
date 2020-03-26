@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+    "engines":{
+      "node":"10.19.0",
+      "npm":"6.14.3"
+    },
   "scripts": {
+    "build":"webpack",
     "test": "mocha test --exit",
     "start": "node server/index.js"
   },
